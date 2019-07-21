@@ -1,0 +1,4 @@
+--require spec_helper
+--format html --out results/rspec_results.html
+
+# comando '~' para especificar qual tag nao deva ser executada durante os testes. Exemplo: --tag ~inicial_tests
