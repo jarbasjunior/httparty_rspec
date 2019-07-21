@@ -4,10 +4,16 @@ require 'httparty/response/headers'
 require 'awesome_print'
 require 'json-prettyprint'
 
+@rspec_yml = YAML.load_file("#{Dir.pwd}/support/rspec.yml")
+@environment = @rspec_yml['environment']
+CONFIG = YAML.load_file("#{Dir.pwd}/support/environments/#{@environment}.yml")
+
 require_relative '../services/login_service.rb'
 require_relative '../services/register_service.rb'
+require_relative '../services/contacts_service.rb'
 
 RSpec.configure do |config|
+  include Contacts
   include Login
   include Register
   config.color = true
